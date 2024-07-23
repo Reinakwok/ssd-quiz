@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        NVD_API_KEY = credentials('NVD-API-KEY')
+        // NVD_API_KEY = credentials('NVD-API-KEY')
         // CHROME_DRIVER_PATH = "./chromedriver"
         SONARQUBE_URL = 'http://172.22.0.1:9000'
         SONARQUBE_SCANNER = tool name: 'sonar-scanner'
