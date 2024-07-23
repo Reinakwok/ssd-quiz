@@ -14,38 +14,38 @@ pipeline {
             }
         }
 
-        // stage('Run Tests') {
-        //     steps {
-        //         script {
-        //             dockerImage.inside {
-        //                 sh 'pytest --/myapp/junitxml=test-results.xml'
-        //             }
-        //         }
-        //     }
-        //     post {
-        //         always {
-        //             junit 'test-results.xml'
-        //         }
-        //     }
-        // }
-
-        stage('SonarQube Analysis') {
+        stage('Run Tests') {
             steps {
                 script {
-                    withSonarQubeEnv('SonarQube') {
-                        sh '''
-                        ${SONARQUBE_SCANNER}/bin/sonar-scanner \
-                        -Dsonar.projectKey=SSDQuiz \
-                        -Dsonar.sources=. \
-                        -Dsonar.exclusions=venv/**.,jenkins_home/**dependency-check-report.html,dependency-check-report.xml \
-                        -Dsonar.host.url=${SONARQUBE_URL} \
-                        -Dsonar.token=${SONARQUBE_TOKEN} \
-                        -Dsonar.python.version=3.9
-                        '''
+                    dockerImage.inside {
+                        sh 'pytest --/myapp/junitxml=test-results.xml'
                     }
                 }
             }
+            post {
+                always {
+                    junit 'test-results.xml'
+                }
+            }
         }
+
+        // stage('SonarQube Analysis') {
+        //     steps {
+        //         script {
+        //             withSonarQubeEnv('SonarQube') {
+        //                 sh '''
+        //                 ${SONARQUBE_SCANNER}/bin/sonar-scanner \
+        //                 -Dsonar.projectKey=SSDQuiz \
+        //                 -Dsonar.sources=. \
+        //                 -Dsonar.exclusions=venv/**.,jenkins_home/**dependency-check-report.html,dependency-check-report.xml \
+        //                 -Dsonar.host.url=${SONARQUBE_URL} \
+        //                 -Dsonar.token=${SONARQUBE_TOKEN} \
+        //                 -Dsonar.python.version=3.9
+        //                 '''
+        //             }
+        //         }
+        //     }
+        // }
 
         // stage('OWASP DependencyCheck') {
         //     steps {
