@@ -4,6 +4,7 @@
     <string>jenkins.diagnostics.SecurityIsOffMonitor</string>
     <string>jenkins.diagnostics.ControllerExecutorsNoAgents</string>
     <string>jenkins.diagnostics.RootUrlNotSetMonitor</string>
+    <string>hudson.util.DoubleLaunchChecker</string>
   </disabledAdministrativeMonitors>
   <version>2.452.3</version>
   <numExecutors>2</numExecutors>
@@ -18,6 +19,7 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds/>
+  <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
   <views>
     <hudson.model.AllView>

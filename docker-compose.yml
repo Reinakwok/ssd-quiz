@@ -18,6 +18,14 @@ services:
     ports:
       - "80:80"
 
+  git-server:
+    build:
+        context: ./Git/
+    restart: always
+    ports:
+        - "3000:3000"
+
+
   flask:
     build: ./myapp/
     container_name: flask_container

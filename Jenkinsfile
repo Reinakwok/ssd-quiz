@@ -18,7 +18,7 @@ pipeline {
         //     steps {
         //         script {
         //             dockerImage.inside {
-        //                 sh 'pytest --./myapp/junitxml=test-results.xml'
+        //                 sh 'pytest --/myapp/junitxml=test-results.xml'
         //             }
         //         }
         //     }
