@@ -35,7 +35,7 @@ pipeline {
                     withSonarQubeEnv('SonarQube') {
                         sh '''
                         ${SONARQUBE_SCANNER}/bin/sonar-scanner \
-                        -Dsonar.projectKey=SSDPractice \
+                        -Dsonar.projectKey=SSDQuiz \
                         -Dsonar.sources=. \
                         -Dsonar.exclusions=venv/**.,jenkins_home/**dependency-check-report.html,dependency-check-report.xml \
                         -Dsonar.host.url=${SONARQUBE_URL} \
