@@ -17,6 +17,12 @@ services:
     build: ./webapp
     ports:
       - "80:80"
+
+  flask:
+    build: ./myapp/
+    container_name: flask_container
+    ports:
+      - "10000:10000"
   
   sonarqube:
     image: sonarqube
