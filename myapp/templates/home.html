@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Search Page</title>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <form action="{{ url_for('search') }}" method="post">
+        <input type="text" name="search_term" required>
+        <button type="submit">Search</button>
+    </form>
+    {% if request.args.get('message') %}
+        <p>{{ request.args.get('message') }}</p>
+    {% endif %}
+</body>
+</html>
